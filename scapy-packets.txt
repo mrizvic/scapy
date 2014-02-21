@@ -1,0 +1,15 @@
+>>> tagged=Ether(src='00:00:00:55:55:55')/Dot1Q(vlan=[1,2,500,3900,3998,3999,4000,4001])/IP(src='1.1.1.1',dst='9.9.9.9')/UDP(sport=1,dport=1)/Raw('\xff'*16)
+>>> untagged=Ether(src='00:00:00:77:77:77')/IP(src='1.1.1.1',dst='9.9.9.9')/UDP(sport=1,dport=1)/Raw('\xff'*16)
+
+>>> tagged=Ether(src='00:00:00:55:55:55',dst='ff:ff:ff:ff:ff:ff')/Dot1Q(vlan=[1,2,500,3900,3998,3999,4000,4001])/IP(src='1.1.1.1',dst='9.9.9.9')/UDP(sport=1,dport=1)/Raw('\xff'*16)
+>>> untagged=Ether(src='00:00:00:55:55:55',dst='ff:ff:ff:ff:ff:ff')/IP(src='1.1.1.1',dst='9.9.9.9')/UDP(sport=1,dport=1)/Raw('\xff'*16)
+
+>>> tagged3999=Ether(src='00:00:00:55:55:55',dst='ff:ff:ff:ff:ff:ff')/Dot1Q(vlan=3999)/IP(src='1.1.1.1',dst='9.9.9.9')/UDP(sport=1,dport=1)/Raw('\xff'*16)
+
+>>> smac=[ '0f:00:00:00:%02x:%02x' % (a,b) for a in range(256) for b in range(256) ]
+
+#smac=[ '0f:00:00:%02x:%02x:%02x' % i for i in itertools.product(range(0x100),repeat=3) ]
+#smac=[ '0f:00:00:%02x:%02x:%02x' % (a,b,c) for a in range(256) for b in range(256) for c in range(256) ]
+#smac=[ '0f:00:00:%02x:%02x:%02x' % (a,b,c) for a in range(5) for b in range(256) for c in range(256) ]
+#print len(smac)
+#print smac[327679]
