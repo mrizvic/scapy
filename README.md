@@ -1,5 +1,11 @@
 #### some stuff i wrote in python using scapy:
 
+##### dhcp-discover-transaction.py
+	initiate DHCP discover, wait for offer, send request, wait for ack
+
+##### dhcp-release.py
+	send DHCP release
+
 ##### ipv6-ra.py
 	script to send IPv6 RA packet with validlifetime and preferredlifetime set to zero
 
