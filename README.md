@@ -1,5 +1,8 @@
 #### some stuff i wrote in python using scapy:
 
+##### ipv6-ra.py
+	script to send IPv6 RA packet with validlifetime and preferredlifetime set to zero
+
 ##### icmpdump.py
 	first time ever that i used threads
 	the tool i use to sniff defined interface, recognise ICMP echo request/response packets and print delta time between them
