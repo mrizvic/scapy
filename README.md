@@ -1,5 +1,8 @@
 #### some stuff i wrote in python using scapy:
 
+##### Coffee
+If you find this useful you can buy me a coffee :) https://ko-fi.com/markor
+
 ##### dhcp-discover-transaction.py
 	initiate DHCP discover, wait for offer, send request, wait for ack
 
