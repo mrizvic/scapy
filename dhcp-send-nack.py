@@ -11,12 +11,11 @@ from scapy.all import DHCP, ARP, BOOTP, Ether, UDP, IP, sendp, sniff
 
 class DHCPSendNack:
 
-    def __init__(self, mac='', ip='', nak_limit=3):
+    def __init__(self):
 
         self.dhcp_srv_mac  = "00:11:22:aa:bb:cc"
         self.dhcp_srv_ip   = "1.2.3.4"
         self.gateway_mac   = "00:aa:bb:00:11:22"
-        self.nak_limit     = 3
 
     def send_nack(self, packet):
         print("### INCOMING PACKET FROM: ", packet[IP].src)
