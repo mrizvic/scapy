@@ -4,12 +4,18 @@ from scapy.all import *
 
 conf.checkIPaddr=False
 
+def mac_to_bytes(mac_addr: str) -> bytes:
+    """ Converts a MAC address string to bytes.
+    """
+    return int(mac_addr.replace(":", ""), 16).to_bytes(6, "big")
+
 # configuration
 localiface = 'eth1'
 requestMAC = 'fc:4d:d4:33:2f:41'
 myhostname='vektor'
 localmac = get_if_hwaddr(localiface)
-localmacraw = requestMAC.replace(':','').decode('hex')
+#localmacraw = requestMAC.replace(':','').decode('hex')
+localmacraw = mac_to_bytes(requestMAC)
 
 # craft DHCP DISCOVER
 dhcp_discover = Ether(src=localmac, dst='ff:ff:ff:ff:ff:ff')/IP(src='0.0.0.0', dst='255.255.255.255')/UDP(dport=67, sport=68)/BOOTP(chaddr=localmacraw,xid=RandInt())/DHCP(options=[('message-type', 'discover'), 'end'])
